@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Blogger from "../page/Data/Blogger";
-import TabList from "../page/Data/TabList";
+import TabList from "../page/Data/TagList";
 import ArticleList from "../page/Data/Article/ArticleList";
 import ArticleEdit from "../page/Data/Article/ArticleEdit";
 import RecordList from "../page/Data/RecordList";
@@ -48,7 +48,7 @@ const routes = [
 			component: Blogger,
 			meta: ['数据管理', '博主信息'],
 		},{
-            path: '/tabs',
+            path: '/tags',
             component: TabList,
             meta: ['数据管理', '标签管理'],
         },{

@@ -7,7 +7,7 @@
 					<el-submenu index="2">
 						<template slot="title"><i class="el-icon-document"></i>数据管理</template>
                         <el-menu-item index="/blogger">博主信息</el-menu-item>
-						<el-menu-item index="/tabs">标签管理</el-menu-item>
+						<el-menu-item index="/tags">标签管理</el-menu-item>
 						<el-menu-item index="/articleList">文章管理</el-menu-item>
 						<el-menu-item index="/recordList">归档管理</el-menu-item>
 						<el-menu-item index="/talkList">留言管理</el-menu-item>

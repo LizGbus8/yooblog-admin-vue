@@ -27,6 +27,8 @@
 <script>
 	import {login, getAdminInfo} from '@/api/getData'
 	import {mapActions, mapState} from 'vuex'
+    import {getTagList} from "../api";
+    import {setStore} from "../config/mUtils";
 
 	export default {
 	    data(){
