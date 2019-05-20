@@ -3,6 +3,18 @@
         <head-top></head-top>
         <div class="table_container">
             <div class="tab-op">
+                <div class="search">
+                    <el-input style="width: 120px" v-model="condition.tId" placeholder="ID"></el-input>
+                    <el-input style="width: 200px" v-model="condition.description" placeholder="说明"></el-input>
+                    <el-select  style="width: 120px" v-model="condition.catId" placeholder="分类">
+                        <el-option label="前端" value="1"></el-option>
+                        <el-option label="后端" value="2"></el-option>
+                        <el-option label="工具" value="3"></el-option>
+                        <el-option label="程序员" value="4"></el-option>
+                        <el-option label="Yoo说说" value="5"></el-option>
+                    </el-select>
+                    <el-button type="primary" @click="handleSelect">查询</el-button>
+                </div>
                 <el-button type="primary" @click="handleAdd()">新增标签</el-button>
             </div>
             <el-table
@@ -11,7 +23,7 @@
                 style="width: 100%">
                 <el-table-column
                     label="标签ID"
-                    prop="tid">
+                    prop="tId">
                 </el-table-column>
                 <el-table-column
                     label="说明"
@@ -20,6 +32,9 @@
                 <el-table-column
                     label="分类"
                     prop="catId">
+                    <template slot-scope="scope">
+                        <span>{{catDesc(scope.row.catId)}}</span>
+                    </template>
                 </el-table-column>
                 <el-table-column label="操作" width="160">
                     <template slot-scope="scope">
@@ -36,19 +51,19 @@
                     :current-page="currentPage"
                     :page-size="20"
                     layout="total, prev, pager, next"
-                    :total="count">
+                    :total="this.tableData.length">
                 </el-pagination>
             </div>
             <el-dialog title="编辑标签" v-model="dialogEditFormVisible">
                 <el-form :model="selectTable">
                     <el-form-item label="标签ID" label-width="100px">
-                        <el-input v-model="selectTable.tid" auto-complete="off" disabled></el-input>
+                        <el-input v-model="selectTable.tId" auto-complete="off" readonly></el-input>
                     </el-form-item>
                     <el-form-item label="说明" label-width="100px">
                         <el-input v-model="selectTable.description"></el-input>
                     </el-form-item>
                     <el-form-item label="分类" label-width="100px">
-                        <el-radio-group v-model="cat" size="medium" @change="change">
+                        <el-radio-group v-model="selectTable.catId" size="medium">
                             <el-radio-button label="1" >前端</el-radio-button>
                             <el-radio-button label="2">后台</el-radio-button>
                             <el-radio-button label="3">工具</el-radio-button>
@@ -59,7 +74,7 @@
                 </el-form>
                 <div slot="footer" class="dialog-footer">
                     <el-button @click="dialogEditFormVisible = false">取 消</el-button>
-                    <el-button type="primary" @click="updateFood">保存</el-button>
+                    <el-button type="primary" @click="updateOrSaveTag(selectTable)">保存</el-button>
                 </div>
             </el-dialog>
 
@@ -69,7 +84,7 @@
                         <el-input v-model="newtab.description"></el-input>
                     </el-form-item>
                     <el-form-item label="分类" label-width="100px">
-                        <el-radio-group v-model="newtab.cat" size="medium">
+                        <el-radio-group v-model="newtab.catId" size="medium">
                             <el-radio-button label="1" >前端</el-radio-button>
                             <el-radio-button label="2">后台</el-radio-button>
                             <el-radio-button label="3">工具</el-radio-button>
@@ -80,7 +95,7 @@
                 </el-form>
                 <div slot="footer" class="dialog-footer">
                     <el-button @click="dialogAddFormVisible = false">取 消</el-button>
-                    <el-button type="primary" @click="updateFood">保存</el-button>
+                    <el-button type="primary" @click="updateOrSaveTag(newtab)">保存</el-button>
                 </div>
             </el-dialog>
         </div>
@@ -89,8 +104,19 @@
 
 <script>
     import headTop from '../../components/headTop'
-    import {baseUrl, baseImgPath} from '@/config/env'
-    import {getFoods, getFoodsCount, getMenu, updateFood, deleteFood, getResturantDetail, getMenuById} from '@/api/getData'
+    import {baseImgPath, baseUrl} from '@/config/env'
+    import {
+        deleteFood,
+        getFoods,
+        getFoodsCount,
+        getMenu,
+        getMenuById,
+        getResturantDetail,
+        updateFood
+    } from '@/api/getData'
+    import {getTagList, saveTag, selectTag} from "../../api";
+    import config from "../../config/config";
+
     export default {
         data(){
             return {
@@ -98,63 +124,13 @@
                 baseImgPath,
                 restaurant_id: null,
                 newtab:{},
+                condition:{},//搜索条件
                 cat:1,//分类
                 city: {},
                 offset: 0,
                 limit: 20,
                 count: 0,
-                tableData: [
-                    {
-                        "description": "Java",
-                        "catId": "后台",
-                        "tid": "1"
-                    },
-                    {
-                        "description": "数据库相关",
-                        "catId": "1",
-                        "tid": 2
-                    },
-                    {
-                        "description": "网站实践",
-                        "catId": "1",
-                        "tid": 3
-                    },
-                    {
-                        "description": "EffectiveJava读书总结",
-                        "catId": "1",
-                        "tid": 4
-                    },
-                    {
-                        "description": "vue实践",
-                        "catId": "2",
-                        "tid": 5
-                    },
-                    {
-                        "description": "css的一些",
-                        "catId": "2",
-                        "tid": 6
-                    },
-                    {
-                        "description": "git",
-                        "catId": "3",
-                        "tid": 7
-                    },
-                    {
-                        "description": "设计画图",
-                        "catId": "3",
-                        "tid": 8
-                    },
-                    {
-                        "description": "漫威宇宙",
-                        "catId": "5",
-                        "tid": 9
-                    },
-                    {
-                        "description": "黄山实录",
-                        "catId": "5",
-                        "tid": 10
-                    }
-                ],
+                tableData: [],
                 currentPage: 1,
                 selectTable: {},
                 dialogEditFormVisible: false,
@@ -177,7 +153,7 @@
             }
         },
         created(){
-            //this.initData();
+            this.initData();
         },
         computed: {
             specs: function (){
@@ -192,69 +168,46 @@
                     })
                 }
                 return specs
+            },
+            catDesc:function () {
+                return function (catId) {
+                    return config.technologyClass.filter(e => e.id == catId)[0].name;
+                }
             }
         },
         components: {
             headTop,
         },
         methods: {
-            change(){
-                alert(this.cat)
-            },
-            async initData(){
-                try{
-                    const countData = await getFoodsCount({restaurant_id: this.restaurant_id});
-                    if (countData.status == 1) {
-                        this.count = countData.count;
-                    }else{
-                        throw new Error('获取数据失败');
+            initData(){
+                getTagList().then(res => {
+                    if (res.code === 0) {
+                        this.tableData = res.data;
                     }
-                    this.getFoods();
-                }catch(err){
-                    console.log('获取数据失败', err);
-                }
+                })
+                this.condition = {};
             },
-            async getMenu(){
-                this.menuOptions = [];
-                try{
-                    const menu = await getMenu({restaurant_id: this.selectTable.restaurant_id, allMenu: true});
-                    menu.forEach((item, index) => {
-                        this.menuOptions.push({
-                            label: item.name,
-                            value: item.id,
-                            index,
-                        })
-                    })
-                }catch(err){
-                    console.log('获取食品种类失败', err);
-                }
-            },
-            async getFoods(){
-                const Foods = await getFoods({offset: this.offset, limit: this.limit, restaurant_id: this.restaurant_id});
-                this.tableData = [];
-                Foods.forEach((item, index) => {
-                    const tableData = {};
-                    tableData.name = item.name;
-                    tableData.item_id = item.item_id;
-                    tableData.description = item.description;
-                    tableData.rating = item.rating;
-                    tableData.month_sales = item.month_sales;
-                    tableData.restaurant_id = item.restaurant_id;
-                    tableData.category_id = item.category_id;
-                    tableData.image_path = item.image_path;
-                    tableData.specfoods = item.specfoods;
-                    tableData.index = index;
-                    this.tableData.push(tableData);
+            updateOrSaveTag(params){
+                saveTag(params).then(res => {
+                    if (res.code === 0 ){
+                        this.$message({
+                            type:'success',
+                            center:true,
+                            message: '提交成功！\\(^ 0^)/'
+                        });
+                        this.dialogEditFormVisible = this.dialogAddFormVisible = false;
+                        this.initData();
+                    }
                 })
             },
-            tableRowClassName(row, index) {
-                if (index === 1) {
-                    return 'info-row';
-                } else if (index === 3) {
-                    return 'positive-row';
-                }
-                return '';
+            handleSelect(){
+                selectTag(this.condition).then(res => {
+                    if (res.code === 0){
+                        this.tableData = res.data;
+                    }
+                })
             },
+
             addspecs(){
                 this.specs.push({...this.specsForm});
                 this.specsForm.specs = '';
@@ -301,10 +254,6 @@
                 if (type == 'edit' && this.restaurant_id != row.restaurant_id) {
                     this.getMenu();
                 }
-            },
-            handleSelect(index){
-                this.selectIndex = index;
-                this.selectMenu = this.menuOptions[index];
             },
             async handleDelete(index, row) {
                 try{
@@ -374,8 +323,16 @@
 <style lang="less">
     @import '../../style/mixin';
     .tab-op{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         margin: 10px;
         float: right;
+    }
+    .search{
+        display: flex;
+        justify-content: space-between;
+        width: 534px;
     }
     .demo-table-expand {
         font-size: 0;
