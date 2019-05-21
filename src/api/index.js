@@ -25,5 +25,11 @@ export const getArticles = (params) => ajax(BASE_URL + '/articles', params);
 //文章
 export const getArticle = (params) => ajax(BASE_URL + `/article/${params}`);
 
+//保存文章
+export const saveArticle = (params) => ajax(BASE_URL + '/article', params, 'POST');
+
+//标签条件查询
+export const selectArticle = (params) => ajax(BASE_URL + '/article', params);
+
 
 

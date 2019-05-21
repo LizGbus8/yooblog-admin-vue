@@ -2,60 +2,60 @@
     <div class="fillcontain">
         <head-top></head-top>
         <div class="table_container">
+            <div class="tab-op">
+                <div class="search_a">
+                    <el-input style="width: 200px" v-model="condition.title" placeholder="标题"></el-input>
+                    <el-select style="width: 150px" filterable clearable v-model="condition.tId" placeholder="标签">
+                        <el-option
+                            v-for="item in tags"
+                            :key="item.tId"
+                            :label="item.description"
+                            :value="item.tId">
+                        </el-option>
+                    </el-select>
+                    <el-select  style="width: 100px" v-model="condition.pub" clearable placeholder="状态">
+                        <el-option label="公开" value="1"></el-option>
+                        <el-option label="隐私" value="0"></el-option>
+                    </el-select>
+                    <el-date-picker
+                        v-model="createdTimes"
+                        type="daterange"
+                        align="right"
+                        unlink-panels
+                        placeholder="发布时间"
+                        :picker-options="pickerOptions">
+                    </el-date-picker>
+                    <el-button type="primary" @click="handleSelect">查询</el-button>
+                </div>
+                <el-button type="primary" @click="handleRefresh()"><i class="el-icon-refresh"></i>刷新表格</el-button>
+            </div>
             <el-table
                 :data="tableData"
-                @expand='expand'
-                :expand-row-keys='expendRow'
                 :row-key="row => row.index"
                 style="width: 100%">
-                <el-table-column type="expand">
-                    <template slot-scope="props">
-                        <el-form label-position="left" inline class="demo-table-expand">
-                            <el-form-item label="食品名称">
-                                <span>{{ props.row.name }}</span>
-                            </el-form-item>
-                            <el-form-item label="餐馆名称">
-                                <span>{{ props.row.restaurant_name }}</span>
-                            </el-form-item>
-                            <el-form-item label="食品 ID">
-                                <span>{{ props.row.item_id }}</span>
-                            </el-form-item>
-                            <el-form-item label="餐馆 ID">
-                                <span>{{ props.row.restaurant_id }}</span>
-                            </el-form-item>
-                            <el-form-item label="食品介绍">
-                                <span>{{ props.row.description }}</span>
-                            </el-form-item>
-                            <el-form-item label="餐馆地址">
-                                <span>{{ props.row.restaurant_address }}</span>
-                            </el-form-item>
-                            <el-form-item label="食品评分">
-                                <span>{{ props.row.rating }}</span>
-                            </el-form-item>
-                            <el-form-item label="食品分类">
-                                <span>{{ props.row.category_name }}</span>
-                            </el-form-item>
-                            <el-form-item label="月销量">
-                                <span>{{ props.row.month_sales }}</span>
-                            </el-form-item>
-                        </el-form>
-                    </template>
-                </el-table-column>
                 <el-table-column
                     label="文章标题"
-                    prop="name">
+                    prop="title">
                 </el-table-column>
                 <el-table-column
                     label="文章标签"
-                    prop="description">
+                    prop="tId" :formatter="descFormatter">
                 </el-table-column>
                 <el-table-column
                     label="阅读数"
-                    prop="rating">
+                    prop="readCount">
                 </el-table-column>
                 <el-table-column
-                    label="发布时间"
-                    prop="description">
+                    label="最近编辑时间"
+                    prop="updatedTime">
+                </el-table-column>
+                <el-table-column
+                    label="公开"
+                    prop="pub">
+                    <template slot-scope="scope">
+                        <el-tag v-if="scope.row.pub === 1" type="success">公开</el-tag>
+                        <el-tag v-else-if="scope.row.pub === 0" type="danger">隐私</el-tag>
+                    </template>
                 </el-table-column>
                 <el-table-column label="操作" width="160">
                     <template slot-scope="scope">
@@ -71,12 +71,11 @@
             </el-table>
             <div class="Pagination">
                 <el-pagination
-                    @size-change="handleSizeChange"
                     @current-change="handleCurrentChange"
-                    :current-page="currentPage"
-                    :page-size="20"
+                    :current-page="condition.current"
+                    :page-size="10"
                     layout="total, prev, pager, next"
-                    :total="count">
+                    :total="total">
                 </el-pagination>
             </div>
         </div>
@@ -85,185 +84,141 @@
 
 <script>
     import headTop from '../../../components/headTop'
-    import {baseUrl, baseImgPath} from '@/config/env'
-    import {getFoods, getFoodsCount, getMenu, updateFood, deleteFood, getResturantDetail, getMenuById} from '@/api/getData'
+    import {baseImgPath, baseUrl} from '@/config/env'
+    import {getArticles, getTagList, selectArticle} from "../../../api";
+
     export default {
         data(){
             return {
                 baseUrl,
                 baseImgPath,
-                restaurant_id: null,
-                city: {},
-                offset: 0,
-                limit: 20,
-                count: 0,
-                tableData: [],
                 currentPage: 1,
+                size: 20,
+                total: 0,
+                createdTimes:[],
+                condition:{
+                    current:1,
+                },//筛选条件
+                tags:[],//标签
+                tableData: [],
                 selectTable: {},
                 dialogFormVisible: false,
                 menuOptions: [],
                 selectMenu: {},
                 selectIndex: null,
-                specsForm: {
-                    specs: '',
-                    packing_fee: 0,
-                    price: 20,
-                },
-                specsFormrules: {
-                    specs: [
-                        { required: true, message: '请输入规格', trigger: 'blur' },
-                    ],
-                },
-                specsFormVisible: false,
                 expendRow: [],
+                pickerOptions: {
+                    shortcuts: [{
+                        text: '最近一周',
+                        onClick(picker) {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+                            picker.$emit('pick', [start, end]);
+                        }
+                    }, {
+                        text: '最近一个月',
+                        onClick(picker) {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+                            picker.$emit('pick', [start, end]);
+                        }
+                    }, {
+                        text: '最近三个月',
+                        onClick(picker) {
+                            const end = new Date();
+                            const start = new Date();
+                            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+                            picker.$emit('pick', [start, end]);
+                        }
+                    }]
+                },
             }
         },
         created(){
-            this.restaurant_id = this.$route.query.restaurant_id;
             this.initData();
         },
         computed: {
-            specs: function (){
-                let specs = [];
-                if (this.selectTable.specfoods) {
-                    this.selectTable.specfoods.forEach(item => {
-                        specs.push({
-                            specs: item.specs_name,
-                            packing_fee: item.packing_fee,
-                            price: item.price,
-                        })
-                    })
-                }
-                return specs
-            }
+
         },
         components: {
             headTop,
         },
         methods: {
-            async initData(){
-                try{
-                    const countData = await getFoodsCount({restaurant_id: this.restaurant_id});
-                    if (countData.status == 1) {
-                        this.count = countData.count;
-                    }else{
-                        throw new Error('获取数据失败');
+            initData(){
+                //请求标签列表
+                getTagList().then(res => {
+                    if (res.code === 0) {
+                        this.tags = res.data;
+
+                        //请求文章列表
+                        getArticles({current: this.currentPage, size: 10}).then(res => {
+                            if (res.code === 0){
+                                this.tableData = res.data.records;
+                                this.currentPage = res.data.current;
+                                this.total = res.data.total;
+                            }
+                        });
                     }
-                    this.getFoods();
-                }catch(err){
-                    console.log('获取数据失败', err);
-                }
-            },
-            async getMenu(){
-                this.menuOptions = [];
-                try{
-                    const menu = await getMenu({restaurant_id: this.selectTable.restaurant_id, allMenu: true});
-                    menu.forEach((item, index) => {
-                        this.menuOptions.push({
-                            label: item.name,
-                            value: item.id,
-                            index,
-                        })
-                    })
-                }catch(err){
-                    console.log('获取食品种类失败', err);
-                }
-            },
-            async getFoods(){
-                const Foods = await getFoods({offset: this.offset, limit: this.limit, restaurant_id: this.restaurant_id});
-                this.tableData = [];
-                Foods.forEach((item, index) => {
-                    const tableData = {};
-                    tableData.name = item.name;
-                    tableData.item_id = item.item_id;
-                    tableData.description = item.description;
-                    tableData.rating = item.rating;
-                    tableData.month_sales = item.month_sales;
-                    tableData.restaurant_id = item.restaurant_id;
-                    tableData.category_id = item.category_id;
-                    tableData.image_path = item.image_path;
-                    tableData.specfoods = item.specfoods;
-                    tableData.index = index;
-                    this.tableData.push(tableData);
-                })
-            },
-            tableRowClassName(row, index) {
-                if (index === 1) {
-                    return 'info-row';
-                } else if (index === 3) {
-                    return 'positive-row';
-                }
-                return '';
-            },
-            addspecs(){
-                this.specs.push({...this.specsForm});
-                this.specsForm.specs = '';
-                this.specsForm.packing_fee = 0;
-                this.specsForm.price = 20;
-                this.specsFormVisible = false;
-            },
-            deleteSpecs(index){
-                this.specs.splice(index, 1);
-            },
-            handleSizeChange(val) {
-                console.log(`每页 ${val} 条`);
+                });
             },
             handleCurrentChange(val) {
                 this.currentPage = val;
-                this.offset = (val - 1)*this.limit;
-                this.getFoods()
-            },
-            expand(row, status){
-                if (status) {
-                    this.getSelectItemData(row)
-                }else{
-                    const index = this.expendRow.indexOf(row.index);
-                    this.expendRow.splice(index, 1)
-                }
+                getArticles({current: this.currentPage, size: 10}).then(res => {
+                    if (res.code === 0){
+                        this.tableData = res.records;
+                        this.currentPage = res.current;
+                        this.total = res.total;
+                    }
+                })
             },
             handleEdit(row) {
                 this.$router.push({
-                    path: `/article/${row.item_id}`,
+                    path: `/article/${row.aId}`,
                 })
             },
-            async getSelectItemData(row, type){
-                const restaurant = await getResturantDetail(row.restaurant_id);
-                const category = await getMenuById(row.category_id)
-                this.selectTable = {...row, ...{restaurant_name: restaurant.name, restaurant_address: restaurant.address, category_name: category.name}};
-
-                this.selectMenu = {label: category.name, value: row.category_id}
-                this.tableData.splice(row.index, 1, {...this.selectTable});
-                this.$nextTick(() => {
-                    this.expendRow.push(row.index);
-                })
-                if (type == 'edit' && this.restaurant_id != row.restaurant_id) {
-                    this.getMenu();
-                }
-            },
-            handleSelect(index){
-                this.selectIndex = index;
-                this.selectMenu = this.menuOptions[index];
-            },
-            async handleDelete(index, row) {
-                try{
-                    const res = await deleteFood(row.item_id);
-                    if (res.status == 1) {
-                        this.$message({
-                            type: 'success',
-                            message: '删除食品成功'
-                        });
-                        this.tableData.splice(index, 1);
-                    }else{
-                        throw new Error(res.message)
+            handleRefresh(){
+                //请求文章列表
+                getArticles({current: this.currentPage, size: 10}).then(res => {
+                    if (res.code === 0){
+                        this.tableData = res.data.records;
+                        this.currentPage = res.data.current;
+                        this.total = res.data.total;
                     }
-                }catch(err){
-                    this.$message({
-                        type: 'error',
-                        message: err.message
-                    });
-                    console.log('删除食品失败')
-                }
+                });
             },
+            descFormatter(row,column){
+                let tId = row.tId;
+                return this.tags.filter(tag => tag.tId === tId)[0].description;
+            },
+            handleSelect(){
+                if (this.createdTimes.length > 1 &&  this.createdTimes[1] != null) {
+                    //GMT handle
+                    this.condition.createdTimes = [this.createdTimes[0].getTime(), this.createdTimes[1].getTime()];
+                }
+
+                //请求后台查询
+                selectArticle(this.condition).then(res => {
+                    if (res.code === 0) {
+                        this.tableData = res.data.records;
+                        this.currentPage = res.data.current;
+                        this.total = res.data.total;
+                    }
+                })
+            },
+            handleDelete(index, row) {
+                this.$message({
+                    type: 'warning',
+                    message: '暂不支持改功能！'
+                });
+            },
+
+
+
+
+
+
             handleServiceAvatarScucess(res, file) {
                 if (res.status == 1) {
                     this.selectTable.image_path = res.image_path;
@@ -311,6 +266,18 @@
 
 <style lang="less">
     @import '../../../style/mixin';
+    .tab-op{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 10px;
+        float: right;
+    }
+    .search_a{
+        display: flex;
+        justify-content: space-between;
+        width: 755px;
+    }
     .demo-table-expand {
         font-size: 0;
     }
