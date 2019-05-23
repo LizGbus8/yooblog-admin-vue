@@ -40,12 +40,12 @@
 </template>
 
 <script>
-	import headTop from '../../components/headTop'
+	import headTop from '../../../components/headTop'
     import {mapState} from 'vuex'
     import {baseUrl, baseImgPath} from '@/config/env'
     import Editor from '@tinymce/tinymce-vue'
-    import {getBlogger, saveBlogger} from "../../api";
-    import {isObjectValueEqual} from "../../config/mUtils";
+    import {getBlogger, saveBlogger} from "../../../api";
+    import {isObjectValueEqual} from "../../../config/mUtils";
 
     export default {
         data(){
@@ -198,7 +198,7 @@
 </script>
 
 <style lang="less">
-	@import '../../style/mixin';
+	@import '../../../style/mixin';
 	.explain_text{
 		margin-top: 20px;
 		text-align: center;

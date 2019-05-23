@@ -31,5 +31,15 @@ export const saveArticle = (params) => ajax(BASE_URL + '/article', params, 'POST
 //标签条件查询
 export const selectArticle = (params) => ajax(BASE_URL + '/article', params);
 
+//归档列表
+export const getRecords = (params) => ajax(BASE_URL + '/records', params);
 
+//保存归档
+export const saveRecord = (params) => ajax(BASE_URL + '/record', params, 'POST');
+
+//标签条件查询
+export const selectRecord = (params) => ajax(BASE_URL + '/record', params);
+
+//留言列表
+export const getTalks = (params) => ajax(BASE_URL + '/talks', params);
 

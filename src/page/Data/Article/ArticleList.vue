@@ -25,9 +25,9 @@
                         placeholder="发布时间"
                         :picker-options="pickerOptions">
                     </el-date-picker>
+                    <el-button @click="clearCondition">清空</el-button>
                     <el-button type="primary" @click="handleSelect">查询</el-button>
                 </div>
-                <el-button type="primary" @click="handleRefresh()"><i class="el-icon-refresh"></i>刷新表格</el-button>
             </div>
             <el-table
                 :data="tableData"
@@ -61,7 +61,7 @@
                     <template slot-scope="scope">
                         <el-button
                             size="small"
-                            @click="handleEdit(scope.row)">编辑</el-button>
+                            @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
                         <el-button
                             size="small"
                             type="danger"
@@ -78,6 +78,64 @@
                     :total="total">
                 </el-pagination>
             </div>
+
+            <el-dialog size="full" title="文章信息" v-model="dialogFormVisible">
+                <el-form :label-position="right" label-width="80px" :model="selectTable">
+                    <el-form-item label="文章标题">
+                        <el-input v-model="selectTable.title"></el-input>
+                    </el-form-item>
+                    <el-form-item label="展示图">
+                        <el-upload
+                            class="avatar-uploader"
+                            :action="baseUrl + '/admin/update/avatar/' + adminInfo.id"
+                            :show-file-list="false"
+                            :on-success="uploadImg"
+                            :before-upload="beforeImgUpload">
+                            <img v-if="adminInfo.avatar" :src="selectTable.imageUrl" class="avatar">
+                            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                        </el-upload>
+                    </el-form-item>
+                    <el-form-item label="标签">
+                        <el-select v-model="selectTable.tId" filterable placeholder="请选择">
+                            <el-option
+                                v-for="item in tags"
+                                :key="item.tId"
+                                :label="item.description"
+                                :value="item.tId">
+                            </el-option>
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item label="发布时间">
+                        <el-date-picker disabled type="date" v-model="selectTable.createdTime" style="width: 100%;"></el-date-picker>
+                    </el-form-item>
+                    <el-form-item label="最近编辑">
+                        <el-date-picker disabled type="date" v-model="selectTable.updatedTime" style="width: 100%;"></el-date-picker>
+                    </el-form-item>
+                    <el-form-item label="浏览数">
+                        <el-input v-model="selectTable.readCount" disabled></el-input>
+                    </el-form-item>
+                    <el-form-item label="分享数">
+                        <el-input v-model="selectTable.starCount" disabled></el-input>
+                    </el-form-item>
+                    <el-form-item label="作者">
+                        <el-input v-model="selectTable.author"></el-input>
+                    </el-form-item>
+                    <el-form-item label="公开">
+                        <el-radio-group v-model="selectTable.pub">
+                            <el-radio-button label=1>公开</el-radio-button>
+                            <el-radio-button label=0>隐私</el-radio-button>
+                        </el-radio-group>
+                    </el-form-item>
+                    <el-form-item label="内容" style="width: 1080px">
+                        <editor api-key="kibwgch7m4xlt7u7t27us16okomv7563yzzfs4eqe9cl5kzf" v-model="selectTable.content" :init="editorInit"></editor>
+                    </el-form-item>
+                    <el-form-item>
+                        <el-button type="primary" @click="submitForm(selectTable.index)">立即保存</el-button>
+                        <el-button @click="resetForm()">重置</el-button>
+                        <el-button @click="dialogFormVisible = false">取 消</el-button>
+                    </el-form-item>
+                </el-form>
+            </el-dialog>
         </div>
     </div>
 </template>
@@ -85,7 +143,10 @@
 <script>
     import headTop from '../../../components/headTop'
     import {baseImgPath, baseUrl} from '@/config/env'
-    import {getArticles, getTagList, selectArticle} from "../../../api";
+    import {mapState} from 'vuex'
+    import Editor from '@tinymce/tinymce-vue'
+    import {getArticles, getTagList, saveArticle, selectArticle} from "../../../api";
+    import {isObjectValueEqual} from "../../../config/mUtils";
 
     export default {
         data(){
@@ -134,16 +195,88 @@
                         }
                     }]
                 },
+                tinyHtml:'',
+                editorInit: {
+                    selector: "#tinymce",
+                    //插件
+                    plugins: ['advlist', 'autolink', 'lists', 'charmap', 'print', 'preview', 'hr', 'anchor', 'pagebreak', 'spellchecker',
+                        'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'fullscreen', 'insertdatetime', 'nonbreaking',
+                        'save', 'table','image','imagetools', 'contextmenu', 'directionality', 'emoticons', 'paste', 'textcolor',
+                        'codesample','code','fullscreen','link'],
+                    link_class_list: [
+                        {title: 'None', value: ''},
+                        {title: 'Dog', value: 'dog'},
+                        {title: 'Cat', value: 'cat'}
+                    ],
+                    //图片说明
+                    image_caption: true,
+                    //图片样式
+                    image_advtab: true,
+                    //图片上传
+                    images_upload_url: 'postAcceptor.php',
+                    automatic_uploads: true,
+                    image_list: [
+                        {title: 'Dog', value: 'mydog.jpg'},
+                        {title: 'Cat', value: 'mycat.gif'}
+                    ],
+                    imagetools_toolbar: "rotateleft rotateright | flipv fliph | editimage imageoptions",
+                    toolbar: "forecolor backcolor undo redo  styleselect  bold italic link image alignleft aligncenter alignright",
+                    height:600,
+                    color_map: [
+                        "000000", "Black",
+                        "993300", "Burnt orange",
+                        "333300", "Dark olive",
+                        "003300", "Dark green",
+                        "003366", "Dark azure",
+                        "000080", "Navy Blue",
+                        "333399", "Indigo",
+                        "333333", "Very dark gray",
+                        "800000", "Maroon",
+                        "FF6600", "Orange",
+                        "808000", "Olive",
+                        "008000", "Green",
+                        "008080", "Teal",
+                        "0000FF", "Blue",
+                        "666699", "Grayish blue",
+                        "808080", "Gray",
+                        "FF0000", "Red",
+                        "FF9900", "Amber",
+                        "99CC00", "Yellow green",
+                        "339966", "Sea green",
+                        "33CCCC", "Turquoise",
+                        "3366FF", "Royal blue",
+                        "800080", "Purple",
+                        "999999", "Medium gray",
+                        "FF00FF", "Magenta",
+                        "FFCC00", "Gold",
+                        "FFFF00", "Yellow",
+                        "00FF00", "Lime",
+                        "00FFFF", "Aqua",
+                        "00CCFF", "Sky blue",
+                        "993366", "Red violet",
+                        "FFFFFF", "White",
+                        "FF99CC", "Pink",
+                        "FFCC99", "Peach",
+                        "FFFF99", "Light yellow",
+                        "CCFFCC", "Pale green",
+                        "CCFFFF", "Pale cyan",
+                        "99CCFF", "Light sky blue",
+                        "CC99FF", "Plum"
+                    ]
+                },
+                formLabelAlign: {},
+                backup:{},//表单备份数据
             }
         },
         created(){
             this.initData();
         },
         computed: {
-
+            ...mapState(['adminInfo']),
         },
         components: {
             headTop,
+            Editor
         },
         methods: {
             initData(){
@@ -173,20 +306,11 @@
                     }
                 })
             },
-            handleEdit(row) {
-                this.$router.push({
-                    path: `/article/${row.aId}`,
-                })
-            },
-            handleRefresh(){
-                //请求文章列表
-                getArticles({current: this.currentPage, size: 10}).then(res => {
-                    if (res.code === 0){
-                        this.tableData = res.data.records;
-                        this.currentPage = res.data.current;
-                        this.total = res.data.total;
-                    }
-                });
+            handleEdit(index, row) {
+                this.selectTable = row;
+                this.selectTable.index = index;
+                this.backup = JSON.parse(JSON.stringify(row));
+                this.dialogFormVisible = true;
             },
             descFormatter(row,column){
                 let tId = row.tId;
@@ -213,9 +337,38 @@
                     message: '暂不支持改功能！'
                 });
             },
-
-
-
+            clearCondition(){
+                this.condition = {current: 1};
+                this.createdTimes = [];
+            },
+            submitForm(index){
+                //没有修改
+                if (isObjectValueEqual(this.selectTable, this.backup)) {
+                    this.$message({
+                        type:'info',
+                        center:true,
+                        message: '没做任何修改！\\(^ 0^)/'
+                    });
+                    return;
+                }
+                //保存
+                saveArticle(this.selectTable).then(res => {
+                    if (res.code === 0) {
+                        //提示
+                        this.$message({
+                            type:'success',
+                            center:true,
+                            message: '提交成功！\\(^ 0^)/'
+                        });
+                        this.selectTable = res.data;
+                        this.tableData.splice(index, 1, JSON.parse(JSON.stringify(res.data)));
+                        this.backup = JSON.parse(JSON.stringify(res.data));
+                    }
+                });
+            },
+            resetForm(){
+                this.selectTable = JSON.parse(JSON.stringify(this.backup));
+            },
 
 
 
@@ -276,7 +429,7 @@
     .search_a{
         display: flex;
         justify-content: space-between;
-        width: 755px;
+        width: 820px;
     }
     .demo-table-expand {
         font-size: 0;

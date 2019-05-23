@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e11d7cf1-f16d-47fc-9032-fc6b2d28465e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/page/Data/Record/RecordList.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/Data/Talk/TalkList.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/Data/Article/ArticleEdit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Data/Article/ArticleEdit.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/Data/Article/ArticleList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Data/Article/ArticleList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/Data/RecordList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Data/RecordList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Data/Blogger.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Data/Blogger/Blogger.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Data/RecordList.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Data/TagList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Data/Tag/TagList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Data/TalkList.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,12 +25,47 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/page/Data/RecordList.vue">
+        <entry file="file://$PROJECT_DIR$/src/page/Data/Talk/TalkList.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="63" column="56" selection-start-line="63" selection-start-column="56" selection-end-line="63" selection-end-column="56" />
+            <state relative-caret-position="547">
+              <caret line="96" column="40" lean-forward="true" selection-start-line="96" selection-start-column="40" selection-end-line="96" selection-end-column="40" />
               <folding>
                 <element signature="n#style#0;n#el-table#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#el-form-item#1;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#el-row#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/page/Data/Article/ArticleEdit.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="168" column="32" selection-start-line="168" selection-start-column="32" selection-end-line="168" selection-end-column="83" />
+              <folding>
+                <element signature="n#el-form#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#3;n#el-form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#4;n#el-form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#el-form-item#9;n#el-form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#el-form-item#9;n#el-form#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="e#2879#2928#0" expanded="true" />
+                <element signature="e#3381#6694#0" />
+                <element signature="e#7653#8535#0" />
+                <element signature="e#8560#8654#0" />
+                <element signature="n#style#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/router/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -59,6 +99,9 @@
       <find>handleSelect</find>
       <find>Tab</find>
       <find>search</find>
+      <find>Food</find>
+      <find>pickerOptions</find>
+      <find>adminInfo</find>
     </findStrings>
     <replaceStrings>
       <replace>,</replace>
@@ -79,24 +122,25 @@
         <option value="$PROJECT_DIR$/src/page/Layout/manage.vue" />
         <option value="$PROJECT_DIR$/config/index.js" />
         <option value="$PROJECT_DIR$/dist/index.html" />
-        <option value="$PROJECT_DIR$/src/page/Data/TalkList.vue" />
         <option value="$PROJECT_DIR$/src/page/Data/CommentList.vue" />
         <option value="$PROJECT_DIR$/src/page/Data/BlogRollList.vue" />
         <option value="$PROJECT_DIR$/build/webpack.base.conf.js" />
         <option value="$PROJECT_DIR$/src/config/mUtils.js" />
         <option value="$PROJECT_DIR$/src/config/config.js" />
         <option value="$PROJECT_DIR$/src/page/Data/TabList.vue" />
-        <option value="$PROJECT_DIR$/src/router/index.js" />
-        <option value="$PROJECT_DIR$/src/page/Data/TagList.vue" />
         <option value="$PROJECT_DIR$/src/page/Meun/manage.vue" />
         <option value="$PROJECT_DIR$/src/page/login.vue" />
         <option value="$PROJECT_DIR$/src/page/Data/Blogger.vue" />
         <option value="$PROJECT_DIR$/src/page/Data/Article/ArticleEdit.vue" />
         <option value="$PROJECT_DIR$/src/main.js" />
+        <option value="$PROJECT_DIR$/src/page/Data/TagList.vue" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/api/index.js" />
-        <option value="$PROJECT_DIR$/src/page/Data/Article/ArticleList.vue" />
         <option value="$PROJECT_DIR$/src/page/Data/RecordList.vue" />
+        <option value="$PROJECT_DIR$/src/api/index.js" />
+        <option value="$PROJECT_DIR$/src/page/Data/TalkList.vue" />
+        <option value="$PROJECT_DIR$/src/page/Data/Article/ArticleList.vue" />
+        <option value="$PROJECT_DIR$/src/router/index.js" />
+        <option value="$PROJECT_DIR$/src/page/Data/Talk/TalkList.vue" />
       </list>
     </option>
   </component>
@@ -147,6 +191,22 @@
               <item name="yooblog-manage-vue" type="b2602c69:ProjectViewProjectNode" />
               <item name="yooblog-manage-vue" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="Data" type="462c0819:PsiDirectoryNode" />
+              <item name="Article" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yooblog-manage-vue" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yooblog-manage-vue" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="Data" type="462c0819:PsiDirectoryNode" />
+              <item name="Talk" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yooblog-manage-vue" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yooblog-manage-vue" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="router" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -177,18 +237,19 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2018.3.5\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\Desktop\github\vue2-manage-master\dist" />
-      <recent name="C:\Users\Administrator\Desktop\github\vue2-manage-master\src\page\Data\Article" />
-      <recent name="C:\Users\Administrator\Desktop\github\vue2-manage-master\src\page\Layout" />
-      <recent name="C:\Users\Administrator\Desktop\github\vue2-manage-master\src\page\Home" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\github\yooblog-manage-vue\src\page\Data\Talk" />
       <recent name="C:\Users\Administrator\Desktop\github\yooblog-manage-vue\src\config" />
       <recent name="C:\Users\Administrator\Desktop\github\yooblog-manage-vue\src\api" />
       <recent name="C:\Users\Administrator\Desktop\github\vue2-manage-master\src\assets" />
       <recent name="C:\Users\Administrator\Desktop\github\vue2-manage-master\static" />
-      <recent name="C:\Users\Administrator\Desktop\github\vue2-manage-master\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\github\yooblog-manage-vue\src\page\Data\Tag" />
+      <recent name="C:\Users\Administrator\Desktop\github\yooblog-manage-vue\src\page\Data\Record" />
+      <recent name="C:\Users\Administrator\Desktop\github\yooblog-manage-vue\src\page\Data\Blogger" />
+      <recent name="C:\Users\Administrator\Desktop\github\yooblog-manage-vue\src\page\Data\Talk" />
+      <recent name="C:\Users\Administrator\Desktop\github\vue2-manage-master\dist" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -233,12 +294,14 @@
       <workItem from="1558059666022" duration="2248000" />
       <workItem from="1558064792278" duration="20418000" />
       <workItem from="1558334829206" duration="15866000" />
-      <workItem from="1558357800260" duration="10949000" />
+      <workItem from="1558357800260" duration="23280000" />
+      <workItem from="1558491453631" duration="7788000" />
+      <workItem from="1558580154310" duration="2729000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95906000" />
+    <option name="totallyTimeSpent" value="118754000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1456" height="876" extended-state="6" />
@@ -249,8 +312,8 @@
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.23989218" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32884097" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4245283" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.28045326" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -259,7 +322,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32884097" />
-      <window_info anchor="bottom" id="Statistic" order="11" />
+      <window_info anchor="bottom" id="Statistic" order="11" weight="0.057873487" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -270,12 +333,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/@tinymce/tinymce-vue/lib/cjs/ScriptLoader.d.ts" />
-    <entry file="file://$PROJECT_DIR$/node_modules/@tinymce/tinymce-vue/lib/cjs/TinyMCE.d.ts" />
-    <entry file="file://$PROJECT_DIR$/node_modules/@tinymce/tinymce-vue/lib/cjs/TinyMCE.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/@tinymce/tinymce-vue/lib/cjs/Utils.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/@tinymce/tinymce-vue/lib/cjs/ScriptLoader.js" />
-    <entry file="file://$PROJECT_DIR$/node_modules/@tinymce/tinymce-vue/lib/cjs/Utils.d.ts" />
     <entry file="file://$PROJECT_DIR$/src/filters/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -422,24 +479,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/Data/TalkList.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2560">
-          <caret line="16" column="65" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
-          <folding>
-            <element signature="n#style#0;n#el-table#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#el-table-column#3;n#el-table#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#el-table-column#4;n#el-table#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#el-row#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#el-row#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#div#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#el-dialog#1;n#div#0;n#div#0;n#template#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/config/mUtils.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="87">
@@ -479,18 +518,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/Data/Blogger.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1015">
-          <caret line="168" column="75" selection-start-line="168" selection-start-column="75" selection-end-line="168" selection-end-column="75" />
-          <folding>
-            <element signature="n#style#0;n#el-form-item#5;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#2005#2051#0" expanded="true" />
-            <element signature="e#2505#5839#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/config/config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
@@ -518,41 +545,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="783">
-          <caret line="41" column="21" lean-forward="true" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/Data/TagList.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="334" column="18" selection-start-line="334" selection-start-column="18" selection-end-line="334" selection-end-column="18" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#el-input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-input#1;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-table#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="e#5230#5276#0" expanded="true" />
-            <element signature="e#6794#7248#0" />
-            <marker date="1558342175143" expanded="true" signature="1605:1733" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="58" column="32" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -562,53 +554,180 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/Data/Article/ArticleList.vue">
+    <entry file="file://$PROJECT_DIR$/src/page/Data/Blogger/Blogger.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="49" column="39" lean-forward="true" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
+        <state relative-caret-position="4308">
+          <caret line="168" column="75" selection-start-line="168" selection-start-column="75" selection-end-line="168" selection-end-column="75" />
           <folding>
-            <element signature="n#style#0;n#el-input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-select#1;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#3614#3663#0" expanded="true" />
-            <element signature="e#4379#5586#0" />
-            <element signature="e#4116#4672#0" />
-            <element signature="e#4727#5103#0" />
-            <element signature="e#5133#5252#0" />
-            <element signature="e#5281#5327#0" />
-            <element signature="e#5366#5496#0" />
-            <element signature="e#6292#6308#0" />
+            <element signature="n#style#0;n#el-form-item#5;n#el-form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#2005#2051#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/Data/Article/ArticleEdit.vue">
+    <entry file="file://$PROJECT_DIR$/src/page/Data/Tag/TagList.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="29" column="81" selection-start-line="29" selection-start-column="81" selection-end-line="29" selection-end-column="81" />
+        <state relative-caret-position="203">
+          <caret line="127" column="16" selection-start-line="127" selection-start-column="16" selection-end-line="127" selection-end-column="35" />
           <folding>
-            <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#3;n#el-form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#4;n#el-form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-form-item#9;n#el-form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#el-form-item#9;n#el-form#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#el-input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-input#1;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-table#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#el-dialog#1;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <marker date="1558498480472" expanded="true" signature="1605:1733" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="10" column="35" lean-forward="true" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/Data/Record/RecordList.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="228" column="12" lean-forward="true" selection-start-line="228" selection-start-column="12" selection-end-line="231" selection-end-column="13" />
+          <folding>
+            <element signature="n#style#0;n#el-input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-input#1;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#el-table#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#el-table#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#template#0;n#el-table-column#1;n#el-table#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#el-dialog#1;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="e#6290#7497#0" />
+            <element signature="e#11964#12431#0" />
+            <element signature="e#14718#14857#0" />
+            <element signature="e#15171#15236#0" />
+            <element signature="e#6997#7029#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="31" column="66" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="66" />
+        <state relative-caret-position="1247">
+          <caret line="43" column="21" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/Data/RecordList.vue">
+    <entry file="file://$PROJECT_DIR$/src/page/uploadImg.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/orderList.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="63" column="56" selection-start-line="63" selection-start-column="56" selection-end-line="63" selection-end-column="56" />
+        <state relative-caret-position="241">
+          <caret line="47" column="54" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="1215" column="4" selection-start-line="1215" selection-start-column="4" selection-end-line="1215" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/foodList.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9019">
+          <caret line="313" column="34" selection-start-line="313" selection-start-column="25" selection-end-line="313" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/Data/Talk/TalkEdit.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/shopList.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="61" column="55" selection-start-line="61" selection-start-column="43" selection-end-line="61" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/Data/Article/ArticleList.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="342" column="14" lean-forward="true" selection-start-line="342" selection-start-column="14" selection-end-line="342" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#el-input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-select#1;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#el-table#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#el-form-item#0;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#el-form-item#1;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#el-form-item#2;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#el-select#0;n#el-form-item#2;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#el-form-item#3;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#3;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#el-form-item#4;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#4;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#el-form-item#5;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#el-form-item#6;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#el-form-item#7;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#el-form-item#8;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#el-radio-group#0;n#el-form-item#8;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#el-form-item#9;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#el-form-item#9;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="e#8004#9211#0" />
+            <element signature="e#9270#12583#0" />
+            <element signature="e#12925#13565#0" />
+            <element signature="e#13604#13980#0" />
+            <element signature="e#14010#14175#0" />
+            <element signature="e#14620#14750#0" />
+            <element signature="e#14778#15387#0" />
+            <element signature="e#15426#15570#0" />
+            <element signature="e#15600#15702#0" />
+            <element signature="e#15728#16713#0" />
+            <element signature="e#16738#16829#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/Data/Article/ArticleEdit.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="168" column="32" selection-start-line="168" selection-start-column="32" selection-end-line="168" selection-end-column="83" />
+          <folding>
+            <element signature="n#el-form#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#3;n#el-form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#4;n#el-form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-form-item#9;n#el-form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#el-form-item#9;n#el-form#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="e#2879#2928#0" expanded="true" />
+            <element signature="e#3381#6694#0" />
+            <element signature="e#7653#8535#0" />
+            <element signature="e#8560#8654#0" />
+            <element signature="n#style#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/Data/Talk/TalkList.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="547">
+          <caret line="96" column="40" lean-forward="true" selection-start-line="96" selection-start-column="40" selection-end-line="96" selection-end-column="40" />
           <folding>
             <element signature="n#style#0;n#el-table#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#el-form-item#1;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-row#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

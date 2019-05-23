@@ -54,6 +54,7 @@
                     :total="this.tableData.length">
                 </el-pagination>
             </div>
+
             <el-dialog title="编辑标签" v-model="dialogEditFormVisible">
                 <el-form :model="selectTable">
                     <el-form-item label="标签ID" label-width="100px">
@@ -103,7 +104,7 @@
 </template>
 
 <script>
-    import headTop from '../../components/headTop'
+    import headTop from '../../../components/headTop'
     import {baseImgPath, baseUrl} from '@/config/env'
     import {
         deleteFood,
@@ -114,8 +115,8 @@
         getResturantDetail,
         updateFood
     } from '@/api/getData'
-    import {getTagList, saveTag, selectTag} from "../../api";
-    import config from "../../config/config";
+    import {getTagList, saveTag, selectTag} from "../../../api";
+    import config from "../../../config/config";
 
     export default {
         data(){
@@ -138,18 +139,6 @@
                 menuOptions: [],
                 selectMenu: {},
                 selectIndex: null,
-                specsForm: {
-                    specs: '',
-                    packing_fee: 0,
-                    price: 20,
-                },
-                specsFormrules: {
-                    specs: [
-                        { required: true, message: '请输入规格', trigger: 'blur' },
-                    ],
-                },
-                specsFormVisible: false,
-                expendRow: [],
             }
         },
         created(){
@@ -321,7 +310,7 @@
 </script>
 
 <style lang="less">
-    @import '../../style/mixin';
+    @import '../../../style/mixin';
     .tab-op{
         display: flex;
         flex-direction: row;

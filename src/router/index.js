@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Blogger from "../page/Data/Blogger";
-import TabList from "../page/Data/TagList";
+import Blogger from "../page/Data/Blogger/Blogger";
+import TabList from "../page/Data/Tag/TagList";
 import ArticleList from "../page/Data/Article/ArticleList";
 import ArticleEdit from "../page/Data/Article/ArticleEdit";
-import RecordList from "../page/Data/RecordList";
-import TalkList from "../page/Data/TalkList";
+import RecordList from "../page/Data/Record/RecordList";
+import TalkList from "../page/Data/Talk/TalkList";
 import CommentList from "../page/Data/CommentList";
 import BlogRollList from "../page/Data/BlogRollList";
 
