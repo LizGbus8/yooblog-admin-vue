@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e11d7cf1-f16d-47fc-9032-fc6b2d28465e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/page/Data/Record/RecordList.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/page/Data/Talk/TalkList.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/Data/Article/ArticleList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Data/Article/ArticleList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/Data/Blogger.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Data/Blogger/Blogger.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/Data/RecordList.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/Data/TagList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Data/Tag/TagList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/Data/TalkList.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Data/Talk/TalkList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Data/Talk/TalkList.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,33 +20,39 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/page/Data/Talk/TalkList.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="547">
-              <caret line="96" column="40" lean-forward="true" selection-start-line="96" selection-start-column="40" selection-end-line="96" selection-end-column="40" />
+            <state relative-caret-position="176">
+              <caret line="50" column="77" selection-start-line="50" selection-start-column="77" selection-end-line="50" selection-end-column="77" />
               <folding>
                 <element signature="n#style#0;n#el-table#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
                 <element signature="n#style#0;n#img#0;n#el-form-item#1;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#el-row#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#el-row#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#style#0;n#el-table#0;n#el-row#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/page/Data/Article/ArticleEdit.vue">
+        <entry file="file://$PROJECT_DIR$/src/page/Data/Article/ArticleList.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="168" column="32" selection-start-line="168" selection-start-column="32" selection-end-line="168" selection-end-column="83" />
+            <state relative-caret-position="-232">
+              <caret line="31" column="21" lean-forward="true" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
               <folding>
-                <element signature="n#el-form#0;n#div#0;n#template#0;n#!!top" />
-                <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#3;n#el-form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#4;n#el-form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#el-form-item#9;n#el-form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#el-form-item#9;n#el-form#0;n#div#0;n#template#0;n#!!top" />
-                <element signature="e#2879#2928#0" expanded="true" />
-                <element signature="e#3381#6694#0" />
-                <element signature="e#7653#8535#0" />
-                <element signature="e#8560#8654#0" />
-                <element signature="n#style#0;n#!!top" />
+                <element signature="n#style#0;n#el-input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#el-select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#el-select#1;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#el-form-item#0;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#el-form-item#2;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#el-select#0;n#el-form-item#2;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#3;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#4;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#el-form-item#6;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#el-radio-group#0;n#el-form-item#8;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+                <element signature="n#style#0;n#el-form-item#9;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#el-form-item#9;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -62,11 +61,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/router/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
+            <state relative-caret-position="-754">
               <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/api/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="634">
+              <caret line="46" column="23" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -136,10 +144,10 @@
         <option value="$PROJECT_DIR$/src/page/Data/TagList.vue" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/page/Data/RecordList.vue" />
-        <option value="$PROJECT_DIR$/src/api/index.js" />
         <option value="$PROJECT_DIR$/src/page/Data/TalkList.vue" />
         <option value="$PROJECT_DIR$/src/page/Data/Article/ArticleList.vue" />
         <option value="$PROJECT_DIR$/src/router/index.js" />
+        <option value="$PROJECT_DIR$/src/api/index.js" />
         <option value="$PROJECT_DIR$/src/page/Data/Talk/TalkList.vue" />
       </list>
     </option>
@@ -296,12 +304,12 @@
       <workItem from="1558334829206" duration="15866000" />
       <workItem from="1558357800260" duration="23280000" />
       <workItem from="1558491453631" duration="7788000" />
-      <workItem from="1558580154310" duration="2729000" />
+      <workItem from="1558580154310" duration="8609000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118754000" />
+    <option name="totallyTimeSpent" value="124634000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1456" height="876" extended-state="6" />
@@ -610,13 +618,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/api/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1247">
-          <caret line="43" column="21" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/page/uploadImg.vue">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -651,46 +652,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/page/Data/Article/ArticleList.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="342" column="14" lean-forward="true" selection-start-line="342" selection-start-column="14" selection-end-line="342" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#el-input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#el-select#1;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#el-table#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#el-form-item#0;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#el-form-item#1;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#el-form-item#2;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#el-select#0;n#el-form-item#2;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#el-form-item#3;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#3;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#el-form-item#4;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#4;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#el-form-item#5;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#el-form-item#6;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#el-form-item#7;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#el-form-item#8;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#el-radio-group#0;n#el-form-item#8;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#el-form-item#9;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#el-form-item#9;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="e#8004#9211#0" />
-            <element signature="e#9270#12583#0" />
-            <element signature="e#12925#13565#0" />
-            <element signature="e#13604#13980#0" />
-            <element signature="e#14010#14175#0" />
-            <element signature="e#14620#14750#0" />
-            <element signature="e#14778#15387#0" />
-            <element signature="e#15426#15570#0" />
-            <element signature="e#15600#15702#0" />
-            <element signature="e#15728#16713#0" />
-            <element signature="e#16738#16829#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/page/Data/Article/ArticleEdit.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
@@ -712,7 +673,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/router/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
+        <state relative-caret-position="-754">
           <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
@@ -720,14 +681,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/api/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="634">
+          <caret line="46" column="23" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/page/Data/Article/ArticleList.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-232">
+          <caret line="31" column="21" lean-forward="true" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#0;n#el-input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-select#1;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#el-form-item#0;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#el-form-item#2;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#el-select#0;n#el-form-item#2;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#3;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#el-date-picker#0;n#el-form-item#4;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#el-form-item#6;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#el-radio-group#0;n#el-form-item#8;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#el-form-item#9;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#el-form-item#9;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/page/Data/Talk/TalkList.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="96" column="40" lean-forward="true" selection-start-line="96" selection-start-column="40" selection-end-line="96" selection-end-column="40" />
+        <state relative-caret-position="176">
+          <caret line="50" column="77" selection-start-line="50" selection-start-column="77" selection-end-line="50" selection-end-column="77" />
           <folding>
             <element signature="n#style#0;n#el-table#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
             <element signature="n#style#0;n#img#0;n#el-form-item#1;n#el-form#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#el-row#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#el-row#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" />
+            <element signature="n#style#0;n#el-table#0;n#el-row#0;n#el-dialog#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

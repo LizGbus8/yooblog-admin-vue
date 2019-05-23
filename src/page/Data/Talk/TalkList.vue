@@ -48,7 +48,7 @@
                         <el-button
                             size="small"
                             type="danger"
-                            @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                            @click="handleDelete(scope.$index, scope.row)">隐藏</el-button>
                     </template>
                 </el-table-column>
             </el-table>
@@ -63,47 +63,82 @@
             <el-dialog size="large" title="留言信息" v-model="dialogFormVisible">
                 <el-form :model="selectTable">
                     <el-form-item label="昵称" label-width="100px">
-                        <el-input v-model="selectTable.fromName" auto-complete="off"></el-input>
+                        <div v-html="selectTable.fromName"></div>
                     </el-form-item>
                     <el-form-item label="头像" label-width="100px">
                         <img style="width: 20%" :src="selectTable.fromAvatar">
                     </el-form-item>
                     <el-form-item label="邮箱" label-width="100px">
-                        <el-input v-model="selectTable.email" auto-complete="off"></el-input>
+                        <div v-html="selectTable.email"></div>
                     </el-form-item>
                     <el-form-item label="留言内容" label-width="100px">
                         <div v-html="selectTable.content"></div>
                     </el-form-item>
+                    <el-form-item label="ip" label-width="100px">
+                        <span>{{selectTable.ip}}</span>
+                    </el-form-item>
+                    <el-form-item label="地址" label-width="100px">
+                        <span>{{selectTable.address}}</span>
+                    </el-form-item>
                     <el-form-item label="楼层" label-width="100px">
-                        <el-input v-model="selectTable.floor" auto-complete="off"></el-input>
+                        <span>{{selectTable.floor}}</span>
+                    </el-form-item>
+                    <el-form-item label="状态" label-width="100px">
+                        <el-tag v-if="selectTable.valid === 1" type="success">显示</el-tag>
+                        <el-tag v-else-if="selectTable.valid === 0" type="danger">隐藏</el-tag>
+                    </el-form-item>
+                    <el-form-item label="引述" label-width="100px">
+                        <span>{{selectTable.quoteContent}}</span><sup>{{selectTable.quoteTitle}}</sup>
+                    </el-form-item>
+                    <el-form-item label="留言时间" label-width="100px">
+                        <span>{{selectTable.createdTime}}</span>
                     </el-form-item>
                 </el-form>
                 <el-row style="overflow: auto; text-align: center;">
                     <el-table
-                        :data="specs"
+                        :data="replyData"
+
                         style="margin-bottom: 20px;">
                         <el-table-column
-                            prop="specs"
-                            label="回复者信息">
+                            label="回复者">
+                            <template slot-scope="scope">
+                                <el-tooltip class="item" effect="light" placement="right">
+                                    <div slot="content">{{scope.row.fromEmail}}<br/><span v-if="scope.row.fromWebsite">{{scope.row.fromWebsite}}</span></div>
+                                    <el-button type="text">{{scope.row.fromName}}</el-button>
+                                </el-tooltip>
+                            </template>
                         </el-table-column>
                         <el-table-column
-                            prop="packing_fee"
-                            label="被回复者信息">
+                            prop="toName"
+                            label="被回复者">
                         </el-table-column>
                         <el-table-column
-                            prop="price"
                             label="回复内容">
+                            <template slot-scope="scope">
+                                <div v-html="scope.row.content"></div>
+                            </template>
                         </el-table-column>
                         <el-table-column
-                            prop="price"
+                            prop="ip"
                             label="ip来源">
+                            <template slot-scope="scope">
+                                <span>{{scope.row.ip}}</span>
+                                <el-tag type="danger">{{scope.row.address}}</el-tag>
+                            </template>
+                        </el-table-column>
+                        <el-table-column
+                            label="状态">
+                            <template slot-scope="scope">
+                                <el-tag v-if="scope.row.valid === 1" type="success">显示</el-tag>
+                                <el-tag v-else-if="scope.row.valid === 0" type="danger">隐藏</el-tag>
+                            </template>
                         </el-table-column>
                         <el-table-column label="操作" >
                             <template slot-scope="scope">
                                 <el-button
                                     size="small"
                                     type="danger"
-                                    @click="deleteSpecs(scope.$index)">删除</el-button>
+                                    @click="deleteSpecs(scope.$index)">隐藏</el-button>
                             </template>
                         </el-table-column>
                     </el-table>
@@ -121,7 +156,7 @@
     import headTop from '../../../components/headTop'
     import {baseUrl, baseImgPath} from '@/config/env'
     import {getFoods, getFoodsCount, getMenu, updateFood, deleteFood, getResturantDetail, getMenuById} from '@/api/getData'
-    import {getTalks} from "../../../api";
+    import {getReplies, getTalks} from "../../../api";
     export default {
         data(){
             return {
@@ -132,8 +167,7 @@
                 currentPage: 1,
                 selectTable: {},
                 dialogFormVisible: false,
-                specs:[],
-                specsForm:{}
+                replyData:[],
             }
         },
         computed: {
@@ -168,6 +202,13 @@
             handleEdit(index, row) {
                 this.selectTable = row;
                 this.dialogFormVisible = true;
+                console.log(row);
+                //请求子回复信息
+                getReplies({commentsId: row.cid}).then(res => {
+                    if (res.code === 0){
+                        this.replyData = res.data;
+                    }
+                })
             },
             handleSelect(index){
                 this.selectIndex = index;

@@ -43,3 +43,6 @@ export const selectRecord = (params) => ajax(BASE_URL + '/record', params);
 //留言列表
 export const getTalks = (params) => ajax(BASE_URL + '/talks', params);
 
+//子回复列表
+export const getReplies = (params) => ajax(BASE_URL + '/replies', params);
+
